@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .bulb {
+        width: 220px;
+        height: 270px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        padding: 12px;
+    }
+    .on {
+        background-color: yellow;
+        border-radius: 45%;
+        border-top-left-radius: 80%;
+        border-top-right-radius: 80%;
+        border: 1px solid yellow;
+        height: 100%;
+        width: 100%;
+        padding: 10px;
+        box-shadow: 0 2px 4px 4px rgb(255, 251, 0);
+    }
+    .off {
+        background-color: rgb(237, 236, 236);
+        border-radius: 45%;
+        border-top-left-radius: 80%;
+        border-top-right-radius: 80%;
+        height: 100%;
+        width: 100%;
+        padding: 10px;
+    }
+    .bulb #ring {
+        height: 50%;
+        width: 75%;
+        background-color: silver;
+        gap: 6px;
+        display: flex;
+        flex-direction: column;
+        padding: 10px 0 0 0;
+        align-items: center;
+        border-bottom-left-radius: 90%;
+        border-bottom-right-radius: 90%;
+        border-top-right-radius: 25%;
+        border-top-left-radius: 25%;
+        box-shadow: 2px 0 2px 2px rgba(189, 189, 189, 0.3);
+    }
+    #btn {
+        display: flex;
+        justify-content: center;
+        outline: none;
+        background-color: rgb(255, 243, 220);
+        color: black;
+        font-size: 1.25rem;
+        padding: 8px;
+        align-items: center;
+        margin: auto;
+        height: 40px;
+        width: 100px;
+        border: none;
+    }
+    #ring div {
+        background-color: darkslategray;
+        height: 2px;
+        width: 100%;
+        padding-top: 4px;
+    }
+</style>
+<body>
+    <div class="bulb">
+        <div class="off" id="bulblight"></div>
+        <div id="ring">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <button id="btn">On</button>
+
+    <script>
+        const buttonPressed = (e) => {
+            let a = document.getElementById("bulblight");
+            a.classList.toggle("on");
+            a.classList.toggle("off");
+            e.target.innerText = e.target.innerText.trim() === "off" ? "on" : "off";
+            
+        }
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click", buttonPressed);
+    </script>
+</body>
+</html>
